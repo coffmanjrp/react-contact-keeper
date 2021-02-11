@@ -1,7 +1,11 @@
 const express = require('express');
 const colors = require('colors');
+const connectDB = require('./config/db');
 
 const app = express();
+
+// Connect Database
+connectDB();
 
 // Define Routes
 app.use('/api/users', require('./routes/users'));
