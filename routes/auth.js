@@ -4,13 +4,20 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator/check');
 const config = require('config');
+const auth = require('../middleware/auth');
 const User = require('../models/User');
 
 // @route   GET api/auth
 // @desc    Get logged in user
 // @access  Private
-router.get('/', (req, res) => {
-  res.send('Get logged in user');
+router.get('/', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('server error');
+  }
 });
 
 // @route   POST api/auth
@@ -32,7 +39,7 @@ router.post(
     const { email, password } = req.body;
 
     try {
-      let user = await User.findOne({ email });
+      const user = await User.findOne({ email });
 
       if (!user) {
         return res.status(400).json({ msg: 'Invalid Credentials' });
@@ -43,11 +50,6 @@ router.post(
       if (!isMatch) {
         return res.status(400).json({ msg: 'Invalid Credentials' });
       }
-
-      user = new User({
-        email,
-        password,
-      });
 
       const payload = {
         user: {
