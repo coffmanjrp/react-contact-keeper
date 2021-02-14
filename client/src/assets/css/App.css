@@ -363,14 +363,19 @@ img {
 }
 
 /* Forms */
-input {
+.form-text {
   display: block;
   margin-top: 0.3rem;
   color: #888;
 }
 
+input {
+  margin: 1.2rem 0;
+}
+
 input[type='text'],
 input[type='email'],
+input[type='tel'],
 input[type='password'],
 input[type='date'],
 select,
