@@ -469,8 +469,8 @@ table th {
 
 .item-enter-active {
   opacity: 1;
-  -webkit-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
+  -webkit-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
 }
 
 .item-exit {
@@ -479,8 +479,8 @@ table th {
 
 .item-exit-active {
   opacity: 0;
-  -webkit-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
+  -webkit-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
 }
 
 /* Mobile Styles */
