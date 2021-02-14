@@ -1,4 +1,4 @@
-import { ContactForm, Contacts } from '../contacts';
+import { ContactFilter, ContactForm, Contacts } from '../contacts';
 
 const Home = () => {
   return (
@@ -7,6 +7,7 @@ const Home = () => {
         <ContactForm />
       </div>
       <div>
+        <ContactFilter />
         <Contacts />
       </div>
     </div>
