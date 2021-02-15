@@ -5,7 +5,12 @@ import { Login, Register } from './components/auth';
 import { ContactState } from './context/contact';
 import { AuthState } from './context/auth';
 import { AlertState } from './context/alert';
+import setAuthToken from './utils/setAuthToken';
 import './assets/css/App.css';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
