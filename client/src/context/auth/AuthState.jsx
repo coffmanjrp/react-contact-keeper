@@ -91,7 +91,7 @@ const AuthState = ({ children }) => {
 
   // Logout
   const logout = () => {
-    console.log('logout');
+    dispatch({ type: LOGOUT });
   };
 
   // Clear Errors
